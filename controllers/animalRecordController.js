@@ -83,7 +83,8 @@ exports.createAnimalRecord = async (req, res) => {
             distributor_type,
             beef_transport_refrigeration,
             date_of_carcass_supply,
-            contact_number
+            contact_number,
+            harmonal_therapy
 
         } = req.body;
 
@@ -160,7 +161,8 @@ exports.createAnimalRecord = async (req, res) => {
             distributor_type: distributor_type,
             beef_transport_refrigeration: beef_transport_refrigeration,
             date_of_carcass_supply: date_of_carcass_supply,
-            contact_number:contact_number
+            contact_number:contact_number,
+            harmonal_therapy : harmonal_therapy
         });
 
 
@@ -373,7 +375,8 @@ exports.updateAnimalRecords = async (req, res) => {
             distributor_type,
             beef_transport_refrigeration,
             date_of_carcass_supply,
-            contact_number
+            contact_number,
+            harmonal_therapy 
 
         } = req.body;
         let grazing_facility = req.body.grazing_facility;
@@ -429,7 +432,8 @@ exports.updateAnimalRecords = async (req, res) => {
                 distributor_type: distributor_type,
                 beef_transport_refrigeration: beef_transport_refrigeration,
                 date_of_carcass_supply: date_of_carcass_supply,
-                contact_number: contact_number
+                contact_number: contact_number,
+                harmonal_therapy : harmonal_therapy
             },
             {
                 new: true,

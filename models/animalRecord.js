@@ -9,12 +9,12 @@
     },
     body_coat_major_color: {
         type:String,
-        enum:['black' , 'grey' , 'white', 'red' , 'miscellaneous']
+        enum:['black' , 'grey' , 'white', 'red' , 'brown ', 'other color']
     }
     , 
     body_coat_minor_color:{
         type:String,
-        enum:['white spots' , 'black spots' , 'red spots' , 'brown spots' , 'none']
+        enum:['white spots' , 'black spots' , 'red spots' , 'brown spots' , 'no spot']
     },
     horns_type:{
         type:String,  
@@ -22,7 +22,7 @@
     },
     horns_position:{
         type:String,  
-        enum:['inward' , 'outward' , 'downward' , 'half ring' , 'full ring' , 'none']
+        enum:['inward' , 'outward' , 'downward' , 'half ring' , 'full ring' , 'none' , 'dehorned']
     },
     known_age:{
         type:String,
@@ -116,7 +116,8 @@
     },
     beef_transport_refrigeration:Boolean,
     date_of_carcass_supply : String,
-    contact_number : String
+    contact_number : String,
+    harmonal_therapy: Boolean
 
 
 
