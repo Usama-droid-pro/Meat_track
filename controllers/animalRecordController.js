@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const AnimalRecord = require("../models/animalRecord")
 const fs = require('fs')
+const AutoIncrement = require('mongoose-sequence')(mongoose);
 
 exports.createAnimalRecord = async (req, res) => {
     try {
@@ -42,6 +43,8 @@ exports.createAnimalRecord = async (req, res) => {
         if (deworming_status == 'true') {
             deworming_status = true
         } else { deworming_status = false }
+
+
 
 
 
@@ -90,7 +93,7 @@ exports.createAnimalRecord = async (req, res) => {
 
 
 
-        const foundResult = await AnimalRecord.findOne({ qr_code: qr_code });
+        const foundResult = await AnimalRecord.findOne({ qr_coidde: qr_code });
         if (foundResult) {
             return (
                 res.json({
@@ -537,5 +540,41 @@ exports.updateAnimalImage = async(req,res)=>{
             message: "Error",
             error: error.message
         });
+    }
+}
+
+exports.searchByAnimal_id =  async (req, res) => {
+    try {
+        const animal_id = req.query.animal_id;
+
+        if (!animal_id) {
+            return (
+                res.json({
+                    message: "animal_id must be provided",
+                    status: false
+                })
+            )
+        }
+
+        const result = await AnimalRecord.findOne({ animal_id: animal_id });
+
+        if (result) {
+            res.status(201).json({
+                message: 'Animal record found successfully',
+                status: true,
+                animalRecord: result
+            });
+        }
+        else {
+            res.status(404).json({
+                message: "Could not find",
+                status: false,
+
+            })
+        }
+    }
+    catch (error) {
+        console.log(error);
+        res.status(500).json({ error });
     }
 }

@@ -1,8 +1,10 @@
  const mongoose = require('mongoose');
+ const AutoIncrement = require('mongoose-sequence')(mongoose);
 
 
  const animalRecord = mongoose.Schema({
     _id:mongoose.Schema.Types.ObjectId,
+    animal_id : Number,
     breed : {
         type:String,
         enum: ["niliravi" , "kundi" , "non descript buff" , 'dhanni' , 'cholistani' , 'sahiwal' , 'dajal' , 'lohani' , 'red sindhi' , 'bhagnari' , 'cross breed' , 'non descript cattle' , 'Friesian']
@@ -123,5 +125,5 @@
 
  })
 
-
+animalRecord.plugin(AutoIncrement, { inc_field: 'animal_id' });
 module.exports = mongoose.model ("animal_record" , animalRecord)
