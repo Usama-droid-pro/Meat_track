@@ -12,6 +12,7 @@ router.get("/getTotalAnimalsCount" , controller.getTotalAnimalsCount)
 router.delete("/deleteAnimalRecord" , controller.deleteAnimalRecord)
 router.put("/updateAnimalRecord" , controller.updateAnimalRecords)
 router.put("/updateAnimalImage" ,upload.single('image') , controller.updateAnimalImage)
+router.get("/searchByanimal_id" , controller.searchByAnimal_id)
 
 
 

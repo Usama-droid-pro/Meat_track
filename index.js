@@ -22,13 +22,15 @@ require('dotenv').config()
 
 
 //connect to db
-mongoose.connect(
+ const db =mongoose.connect(
     process.env.DB_CONNECTION, {
         useUnifiedTopology: true,
         useNewUrlParser: true
     },
     () => console.log("Connected to DB")
 );
+
+
 
 //middleware
 app.use(express.json());
@@ -74,7 +76,7 @@ app.use("/animal_record" , require("./routes/animalRecordRoute"))
 // const cloudinary = require("./utils/cloudinary")
 
 
-
+module.exports = db;
 
 const server= app.listen(3000 || process.env.PORT, function () {
     console.log("server started on port 3000")
